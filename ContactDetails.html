@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login Page</title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+
+<header id="header">
+<br>
+</header>
+<body>
+<div class="container-fluid">
+<form action="" method="" id="contactForm" class="needs-validation" novalidate>
+
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <div class="form-group row">
+          <div class="col-md-12">
+            <h4 style="" class="card-title">Select your Application Mode</h4>
+          </div>
+      </div>
+
+<!-- Start of Name, Email, Phone
+      <div class="form-group row">
+        <label class="col-md-12" for="name">Name:</label>
+				  <div class="col-md-12">
+                <input type="text" class="form-control" id="name_ID_" name="Name" Placeholder="Full name as in NRIC or Passport" class="form-control"  required>
+				            <div class="invalid-feedback">Please enter your name</div>
+				</div>
+      </div>
+
+    <div class="form-group row">
+    	<label class="col-md-12" for="email">Email:</label>
+                  <div class="col-md-12">
+                    <input type="email" class="form-control" id="email_ID_" name="email" Placeholder="Eg. abc@gmail.com" class="form-control" title="Please enter your valid email address"   required>
+    				            <div class="invalid-feedback">
+    										Please enter a valid email address
+    							      </div>
+                        <small id="emailHelp" class="form-text text-muted">For sending you your account information</small>
+                      </div>
+
+    </div>
+
+    <div class ="form-group row">
+      <label class ="col-md-12" for="MobileNo">Mobile:</label>
+			  <div class = "col-md-12">
+              <input type="tel" name="Mobile_No_" class="form-control" id="Mobile_No_" placeholder="Eg. 98765432" required>
+      			  <div class="invalid-feedback">
+      								Please enter a valid mobile number
+      			  </div>
+              <small id="emailHelp" class="form-text text-muted">For notifying you on your account</small>
+			  </div>
+
+    </div>
+	End of Name, Email, Phone    -->
+    <div class="form-group row">
+       <div class="col-md-12">
+         <label for="Verify_Your_Information" style="">To fast track your application, apply using</small></label> <br>
+         <button type="submit" class="btn btn-info btn-lg" value="INB" form action="">Internet Banking</button>
+        </div>
+    </div>
+
+ <div class="form-group row">
+   <div class="col-md-12">
+     <label for="" style="">Otherwise, apply using</label><br>
+     <input type="button" class="btn btn-info" value="MyInfo / SingPass" onclick="relocate_myinfo()">
+
+   </div>
+ </div>
+  <div class="form-group row">
+      <div class="card-footer col-md-12">
+          <button type="button" class="btn btn-link" value="" onclick="">I do not have any of the above</button>
+        </div>
+      </div>
+  </div> <!--Card body-->
+</div> <!--Card-->
+</form>
+
+</div><!--Container  -->
+
+
+
+
+<script >
+//https://blog.teamtreehouse.com/storing-data-on-the-client-with-localstorage
+     window.onload = function() {
+
+  // Check for LocalStorage support.
+  if (localStorage) {
+
+    // Add an event listener for form submissions
+    document.getElementById('contactForm').addEventListener('submit', function() {
+      // Get the value of the name field.
+
+
+	  var name = document.getElementById('name_ID_').value;
+	  var email = document.getElementById('email_ID_').value;
+	  var MobileNo = document.getElementById('Mobile_No_').value;
+
+	  localStorage.setItem('name_ID_', name);
+	  localStorage.setItem('email_ID_', email);
+	  localStorage.setItem('Mobile_No_', MobileNo);
+	 });
+
+  }
+
+}
+</script>
+<script>
+// Disable form submissions if there are invalid fields
+function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Get the forms we want to add validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+}
+</script>
+<!-- Login Options Scripts-->
+<script>
+  function relocate_myinfo()
+  {
+       location.href = 'myinfo.html';
+  }
+
+  function relocate_Forms_Final()
+  {
+  	location.href = 'Forms_Final.html';
+  }
+</script>
+
+
+</body>
+</html>

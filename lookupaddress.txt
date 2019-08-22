@@ -1,0 +1,66 @@
+// Company Address postal code
+
+<!-- #changed on 21May -->
+
+function httpGet(my_integer,)
+
+{
+
+	my_integer = document.getElementById("CompanyPostalCode").value;
+
+	// take integer
+
+	// plug integer into  this thing https://developers.onemap.sg/commonapi/search?searchVal=320014&returnGeom=Y&getAddrDetails=Y&pageNum=1
+
+	my_string = "https://developers.onemap.sg/commonapi/search?searchVal=".concat(my_integer);
+
+	my_string = my_string.concat("&returnGeom=Y&getAddrDetails=Y&pageNum=1");
+
+	// some sort of string concat to make the long string url
+
+	// set theUrl = this new long url
+
+	theUrl = my_string;
+
+    var xmlHttp = new XMLHttpRequest();
+
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+
+    xmlHttp.send( null );
+
+	var1 =JSON.parse(xmlHttp.responseText)['results'][0]['BLK_NO']
+
+	var2 =JSON.parse(xmlHttp.responseText)['results'][0]['ROAD_NAME']
+
+	var3 =JSON.parse(xmlHttp.responseText)['results'][0]['BUILDING']
+
+	result =  (var1 + " " + var2 + " " + var3)
+
+	//document.getElementById("Mailing_Address_Contact_Details").value  = JSON.parse(xmlHttp.responseText)['results'][0]['BLK_NO']
+
+	document.getElementById("CompanyAddress").value  = result;
+
+    return xmlHttp.responseText;
+
+}
+
+$(document).ready(function(){
+
+  $("Company_Address_LookUp_Address").click(function(my_integer){
+
+    $.getJSON("demo_ajax_json.js", function(result){
+
+      $.each(result, function(i, field){
+
+        $("CompanyAddress").append(field + " ");
+
+      });
+
+    });
+
+  });
+
+});
+
+</script>
+<!-- #changed on 21May end-->

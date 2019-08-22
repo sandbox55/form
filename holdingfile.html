@@ -1,0 +1,44 @@
+<html>
+<script>
+//To get from LS and display value
+window.onload = function() {
+  // Retrieve the users name.
+  var officeno = localStorage.getItem('lsofficeno');
+  var coypostcode = localStorage.getItem('lscoypost');
+  var coyaddr = localStorage.getItem('lscoyaddr');
+
+   document.getElementById('OfficeNo').value = officeno;
+   document.getElementById('CompanyPostalCode').value = coypostcode;
+   document.getElementById('Company_Address_LookUp_Address').value = coyaddr;
+
+}
+</script>
+
+<script >
+//https://blog.teamtreehouse.com/storing-data-on-the-client-with-localstorage
+//to get value and save into LS
+     window.onload = function() {
+
+  // Check for LocalStorage support.
+  if (localStorage) {
+
+    // Add an event listener for form submissions
+    document.getElementById('applndetails').addEventListener('submit', function() {
+      // Get the value of the name field.
+
+    var officeno = document.getElementById('OfficeNo').value;
+    var coypostcode = document.getElementById('CompanyPostalCode').value;
+    var coyaddr = document.getElementById('Company_Address_LookUp_Address').value;
+
+//save the value into localStorage
+	  localStorage.setItem('lsofficeno', officeno);
+	  localStorage.setItem('lscoypost', coypostcode);
+	  localStorage.setItem('lscoyaddr', coyaddr);
+	 });
+
+  }
+
+}
+</script>
+
+</html>
